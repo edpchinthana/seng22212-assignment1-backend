@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,7 +14,7 @@ public class SensorData {
     private String id;
     private String sensor_id;
     private String sensor_type;
-    private String captured_data;
+    private Timestamp captured_date;
     private String data_value;
 
     public String getSensor_type() {
@@ -39,12 +41,12 @@ public class SensorData {
         this.sensor_id = sensor_id;
     }
 
-    public String getCaptured_data() {
-        return captured_data;
+    public Timestamp getCaptured_date() {
+        return captured_date;
     }
 
-    public void setCaptured_data(String captured_data) {
-        this.captured_data = captured_data;
+    public void setCaptured_date(Timestamp captured_date) {
+        this.captured_date = captured_date;
     }
 
     public String getData_value() {
