@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uok.seng22212.apiserver.models.SensorData;
+import uok.seng22212.apiserver.models.SensorType;
 import uok.seng22212.apiserver.services.SensorDataService;
 
 
@@ -49,9 +50,9 @@ public class SensorDataController {
 
 
     @RequestMapping(value="/{type}", method = RequestMethod.POST)
-    public ResponseEntity<?> addSensorData (@RequestBody SensorData sensorData, @PathVariable String type){
+    public ResponseEntity<?> addSensorData (@RequestBody SensorData sensorData, @PathVariable SensorType sensorType){
         try{
-            sensorDataService.addSensorData(sensorData, type);
+            sensorDataService.addSensorData(sensorType, sensorData);
             return ResponseEntity.status(HttpStatus.OK).build();
         }catch (Exception e){
             LOGGER.error("ADD SENSOR DATA ERROR",e);

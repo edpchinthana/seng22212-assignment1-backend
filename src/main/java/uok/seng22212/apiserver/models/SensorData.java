@@ -13,17 +13,9 @@ public class SensorData {
 
     private String id;
     private String sensor_id;
-    private String sensor_type;
     private Timestamp captured_date;
     private String data_value;
-
-    public String getSensor_type() {
-        return sensor_type;
-    }
-
-    public void setSensor_type(String sensor_type) {
-        this.sensor_type = sensor_type;
-    }
+    private String unit;
 
     public String getId() {
         return id;
@@ -55,5 +47,13 @@ public class SensorData {
 
     public void setData_value(String data_value) {
         this.data_value = data_value;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 }
