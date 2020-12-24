@@ -10,7 +10,7 @@ import java.util.List;
 public interface SensorService {
 
     void addSensor(SensorType sensorType, List<Sensor> sensor);
-    List<SensorData> getSensor();
+    List<Sensor> getSensor();
 
 
 
