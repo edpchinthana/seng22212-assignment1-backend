@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uok.seng22212.apiserver.controllers.SensorDataController;
-import uok.seng22212.apiserver.models.SensorData;
+import uok.seng22212.apiserver.models.Sensor;
 import uok.seng22212.apiserver.models.SensorType;
 import uok.seng22212.apiserver.repositories.SensorDataRepository;
 import uok.seng22212.apiserver.repositories.SensorRepository;
@@ -22,8 +22,8 @@ public class SensorServiceImpl implements SensorService{
 
 
     @Override
-    public void addSensor(SensorType sensorType, List<SensorData> sensorData) {
-        repository.addSensor(sensorType, sensorData);
+    public void addSensor(SensorType sensorType, List<Sensor> sensor) {
+        repository.addSensor(sensorType, sensor);
     }
 
     @Override
