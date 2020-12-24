@@ -12,9 +12,9 @@ import java.sql.Timestamp;
 public class SensorData {
 
     private String id;
-    private String sensor_id;
-    private Timestamp captured_date;
-    private String data_value;
+    private String sensorId;
+    private Timestamp capturedDate;
+    private String dataValue;
     private String unit;
 
     public String getId() {
@@ -25,28 +25,28 @@ public class SensorData {
         this.id = id;
     }
 
-    public String getSensor_id() {
-        return sensor_id;
+    public String getSensorId() {
+        return sensorId;
     }
 
-    public void setSensor_id(String sensor_id) {
-        this.sensor_id = sensor_id;
+    public void setSensorId(String sensorId) {
+        this.sensorId = sensorId;
     }
 
-    public Timestamp getCaptured_date() {
-        return captured_date;
+    public Timestamp getCapturedDate() {
+        return capturedDate;
     }
 
-    public void setCaptured_date(Timestamp captured_date) {
-        this.captured_date = captured_date;
+    public void setCapturedDate(Timestamp capturedDate) {
+        this.capturedDate = capturedDate;
     }
 
-    public String getData_value() {
-        return data_value;
+    public String getDataValue() {
+        return dataValue;
     }
 
-    public void setData_value(String data_value) {
-        this.data_value = data_value;
+    public void setDataValue(String dataValue) {
+        this.dataValue = dataValue;
     }
 
     public String getUnit() {

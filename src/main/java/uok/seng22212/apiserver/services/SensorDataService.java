@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface SensorDataService {
 
-    void addSensorData(SensorType sensorType, SensorData sensorData);
-    List<SensorData> getAllSensorData();
-    List<SensorData> getSensorDataByType(String type, String from, String to);
+    void addSensorData(SensorType sensorType, List<SensorData> sensorData);
+//    List<SensorData> getAllSensorData();
+//    List<SensorData> getSensorDataByType(String type, String from, String to);
 }
 

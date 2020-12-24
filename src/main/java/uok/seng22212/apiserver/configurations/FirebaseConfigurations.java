@@ -16,7 +16,7 @@ public class FirebaseConfigurations {
     public static void initializeFirebase() throws IOException {
 
         FileInputStream serviceAccount =
-                new FileInputStream("/home/pasindu/Downloads/serviceAccountKey.json");
+                new FileInputStream("/home/pasindu/Downloads/seng22212-assignment-1-firebase-adminsdk-agh2y-62b0ce27a3.json");
                 FirebaseOptions options = new FirebaseOptions.Builder()
                         .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                         .build();
