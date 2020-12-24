@@ -6,10 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,6 +32,17 @@ public class SensorDataController {
         }
     }
 
+
+    @RequestMapping(value="/type", method = RequestMethod.GET)
+    public ResponseEntity<?> getSensorDataByType(@RequestParam String type, @RequestParam String from, @RequestParam String to){
+        try{
+            List<SensorData> sensorDataList = sensorDataService.getSensorDataByType(type, from, to);
+            return ResponseEntity.status(HttpStatus.OK).body(sensorDataList);
+        }catch (Exception e){
+            LOGGER.error("GET SENSOR DATA BY TYPE ERROR",e);
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
+        }
+    }
 
 
 
