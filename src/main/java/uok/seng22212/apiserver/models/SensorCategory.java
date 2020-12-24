@@ -7,13 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Sensor {
+public class SensorCategory {
 
     private String id;
     private String title;
-    private SensorCategory type;
-    private double threshold;
-    private String unit;
+    private SensorType type;
 
     public String getId() {
         return id;
@@ -31,27 +29,11 @@ public class Sensor {
         this.title = title;
     }
 
-    public SensorCategory getType() {
+    public SensorType getType() {
         return type;
     }
 
-    public void setType(SensorCategory type) {
+    public void setType(SensorType type) {
         this.type = type;
-    }
-
-    public double getThreshold() {
-        return threshold;
-    }
-
-    public void setThreshold(double threshold) {
-        this.threshold = threshold;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
     }
 }
