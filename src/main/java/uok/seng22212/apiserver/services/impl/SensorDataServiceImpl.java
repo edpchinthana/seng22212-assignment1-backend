@@ -24,4 +24,18 @@ public class SensorDataServiceImpl implements SensorDataService {
     }
 
 
+    @Override
+    public List<SensorData> getSensorDataByType(String type, String from, String to) {
+        try{
+            return repository.getSensorDataByType(type, from, to);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+
+
+
+
+
 }
