@@ -34,6 +34,17 @@ public class SensorDataServiceImpl implements SensorDataService {
     }
 
 
+    @Override
+    public void addSensorData(SensorData sensorData, String type) {
+        try{
+            sensorData.setSensor_type(type);
+            repository.addSensorData(sensorData);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+
 
 
 

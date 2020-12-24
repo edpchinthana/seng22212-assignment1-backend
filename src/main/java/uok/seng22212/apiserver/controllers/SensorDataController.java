@@ -45,5 +45,18 @@ public class SensorDataController {
     }
 
 
+    @RequestMapping(value="/{type}", method = RequestMethod.POST)
+    public ResponseEntity<?> addSensorData (@RequestBody SensorData sensorData, @PathVariable String type){
+        try{
+            sensorDataService.addSensorData(sensorData, type);
+            return ResponseEntity.status(HttpStatus.OK).build();
+        }catch (Exception e){
+            LOGGER.error("ADD SENSOR DATA ERROR",e);
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
+        }
+    }
+
+
+
 
 }
