@@ -20,7 +20,7 @@ public class AlertSubscriberController {
     @Autowired
     AlertSubscriberService alertSubscriberService;
 
-    private final Logger LOGGER = LoggerFactory.getLogger(SensorController.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(AlertSubscriberController.class);
 
     @RequestMapping(value="", method = RequestMethod.GET)
     public ResponseEntity<?> getAllSubscribers(){

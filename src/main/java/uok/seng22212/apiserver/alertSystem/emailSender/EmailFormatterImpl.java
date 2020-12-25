@@ -30,8 +30,8 @@ public class EmailFormatterImpl implements EmailFormatter{
         body.append("\n"+alert.getTitle());
         body.append("\n"+alert.getCause());
 
-        body.append("\n--Sensor Details--");
-        body.append("\n\nSensor Type : "+alert.getSensorData().getType());
+        body.append("\n\n--Sensor Details--");
+        body.append("\nSensor Type : "+alert.getSensorData().getType());
         body.append("\nSensor Id : "+alert.getSensorData().getId());
         body.append("\nSensor Threshold : "+alert.getSensorData().getThreshold()+alert.getSensorData().getUnit());
         body.append("\nRecorded value : "+alert.getSensorData().getDataValue()+alert.getSensorData().getUnit());

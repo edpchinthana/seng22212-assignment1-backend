@@ -29,7 +29,7 @@ public class SensorDataServiceImpl implements SensorDataService {
 
     @Override
     public void addSensorData(SensorType sensorType, List<SensorData> sensorDataList) throws Exception {
-
+        repository.addSensorData(sensorType, sensorDataList);
         for(SensorData sensorData : sensorDataList){
             CriticalValueDetector criticalValueDetector = criticalValueDetectorFactory.getInstance(sensorData);
             if(criticalValueDetector.detect(sensorData)){
@@ -37,7 +37,7 @@ public class SensorDataServiceImpl implements SensorDataService {
                 alertSystem.sendAlert(sensorData);
             }
         }
-        repository.addSensorData(sensorType, sensorDataList);
+
     }
 
     @Override

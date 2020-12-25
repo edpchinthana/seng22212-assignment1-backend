@@ -35,9 +35,8 @@ public class AlertSystemImpl implements AlertSystem {
         try{
             Alert alert = alertMessageGenerator(sensorData);
             List<AlertSubscriber> alertSubscriberList = alertSubscriberService.getAllSubscribers();
-
-            emailSender.sendEmails(alert, alertSubscriberList);
             alertRepository.addAlert(alert);
+            emailSender.sendEmails(alert, alertSubscriberList);
 
         }catch (Exception e){
             throw e;

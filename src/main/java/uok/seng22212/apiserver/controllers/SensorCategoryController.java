@@ -22,7 +22,7 @@ public class SensorCategoryController {
     @Autowired
     SensorCategoryService sensorCategoryService;
 
-    private final Logger LOGGER = LoggerFactory.getLogger(SensorController.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(SensorCategoryController.class);
 
     @RequestMapping(value="", method = RequestMethod.GET)
     public ResponseEntity<?> getAllSensorCategories(){
