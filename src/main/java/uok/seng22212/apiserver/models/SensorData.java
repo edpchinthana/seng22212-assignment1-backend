@@ -14,8 +14,18 @@ public class SensorData {
     private String id;
     private String sensorId;
     private Timestamp capturedDate;
-    private String dataValue;
+    private double threshold;
+    private double dataValue;
     private String unit;
+
+
+    public double getThreshold() {
+        return threshold;
+    }
+
+    public void setThreshold(double threshold) {
+        this.threshold = threshold;
+    }
 
     public String getId() {
         return id;
@@ -41,11 +51,11 @@ public class SensorData {
         this.capturedDate = capturedDate;
     }
 
-    public String getDataValue() {
+    public double getDataValue() {
         return dataValue;
     }
 
-    public void setDataValue(String dataValue) {
+    public void setDataValue(double dataValue) {
         this.dataValue = dataValue;
     }
 
