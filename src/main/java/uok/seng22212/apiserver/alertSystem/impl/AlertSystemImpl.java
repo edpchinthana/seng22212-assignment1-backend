@@ -1,20 +1,40 @@
 package uok.seng22212.apiserver.alertSystem.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import uok.seng22212.apiserver.alertSystem.AlertSystem;
+import uok.seng22212.apiserver.alertSystem.EmailSender;
 import uok.seng22212.apiserver.models.Alert;
+import uok.seng22212.apiserver.models.AlertSubscriber;
 import uok.seng22212.apiserver.models.SensorData;
+import uok.seng22212.apiserver.services.AlertSubscriberService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 public class AlertSystemImpl implements AlertSystem {
 
+    @Autowired
+    AlertSubscriberService alertSubscriberService;
+
+    @Autowired
+    EmailSender emailSender;
+
     @Override
-    public void sendAlert(SensorData sensorData) {
+    public void sendAlert(SensorData sensorData) throws ExecutionException, InterruptedException {
 
-        Alert alert = alertMessageGenerator(sensorData);
+        try{
+            Alert alert = alertMessageGenerator(sensorData);
+            List<AlertSubscriber> alertSubscriberList = alertSubscriberService.getAllSubscribers();
 
+            emailSender.sendEmails(alert, alertSubscriberList);
+
+
+        }catch (Exception e){
+            throw e;
+        }
     }
 
 

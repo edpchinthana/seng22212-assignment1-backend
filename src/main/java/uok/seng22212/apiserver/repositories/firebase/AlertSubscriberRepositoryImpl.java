@@ -2,6 +2,7 @@ package uok.seng22212.apiserver.repositories.firebase;
 
 
 import com.google.cloud.firestore.Firestore;
+import org.springframework.stereotype.Repository;
 import uok.seng22212.apiserver.configurations.FirebaseConfigurations;
 import uok.seng22212.apiserver.models.AlertSubscriber;
 import uok.seng22212.apiserver.repositories.AlertSubscriberRepository;
@@ -9,6 +10,7 @@ import uok.seng22212.apiserver.repositories.AlertSubscriberRepository;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+@Repository
 public class AlertSubscriberRepositoryImpl implements AlertSubscriberRepository {
 
     private final static Firestore firestoreRef = FirebaseConfigurations.getFirestoreReference();

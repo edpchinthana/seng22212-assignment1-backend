@@ -4,6 +4,6 @@ import uok.seng22212.apiserver.models.SensorData;
 
 public interface AlertSystem {
 
-    void sendAlert(SensorData sensorData);
+    void sendAlert(SensorData sensorData) throws Exception;
 
 }
