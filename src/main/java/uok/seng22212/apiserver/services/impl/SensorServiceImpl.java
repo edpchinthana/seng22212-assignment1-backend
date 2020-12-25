@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uok.seng22212.apiserver.controllers.SensorController;
+import uok.seng22212.apiserver.criticalValueDetectors.CriticalValueDetector;
+import uok.seng22212.apiserver.criticalValueDetectors.CriticalValueDetectorFactory;
 import uok.seng22212.apiserver.models.Sensor;
 import uok.seng22212.apiserver.models.SensorType;
 
