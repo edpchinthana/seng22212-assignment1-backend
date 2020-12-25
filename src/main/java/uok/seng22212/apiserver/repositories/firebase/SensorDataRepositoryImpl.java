@@ -46,16 +46,7 @@ public class SensorDataRepositoryImpl implements SensorDataRepository {
 
             for(QueryDocumentSnapshot doc: querySnapshot.get().getDocuments()){
                 SensorData sensorData = new SensorData();
-                sensorData.setId(doc.get("id").toString());
-                sensorData.setSensorId(doc.get("sensorId").toString());
-                sensorData.setDataValue(doc.getDouble("dataValue"));
-                sensorData.setThreshold(doc.getDouble("threshold"));
-                sensorData.setType(SensorType.valueOf(doc.get("type").toString()));
-                sensorData.setUnit(doc.getString("unit"));
-                Timestamp googleTimestamp = doc.getTimestamp("capturedDate");
-                Date date = googleTimestamp.toDate();
-                java.sql.Timestamp timestamp = new java.sql.Timestamp(date.getTime());
-                sensorData.setCapturedDate(timestamp);
+                sensorData.convertMapToSensorData(doc.getData());
                 sensorDataList.add(sensorData);
             }
 

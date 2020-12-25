@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
+import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -75,5 +77,21 @@ public class SensorData implements Serializable {
 
     public void setUnit(String unit) {
         this.unit = unit;
+    }
+
+    public void convertMapToSensorData(Map<String, Object> dataMap){
+        SensorData sensorData = new SensorData();
+
+        this.id = dataMap.get("id").toString();
+        this.sensorId = dataMap.get("sensorId").toString();
+        this.dataValue = Double.parseDouble(dataMap.get("dataValue").toString());
+        this.threshold = Double.parseDouble(dataMap.get("threshold").toString());
+        this.type = SensorType.valueOf(dataMap.get("type").toString());
+        this.unit = dataMap.get("unit").toString();
+
+        com.google.cloud.Timestamp googleTimestamp = com.google.cloud.Timestamp.parseTimestamp(dataMap.get("capturedDate").toString());
+        Date date = googleTimestamp.toDate();
+        java.sql.Timestamp timestamp = new java.sql.Timestamp(date.getTime());
+        this.capturedDate = timestamp;
     }
 }
