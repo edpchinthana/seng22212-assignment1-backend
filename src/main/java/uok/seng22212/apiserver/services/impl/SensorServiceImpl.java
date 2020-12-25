@@ -24,6 +24,8 @@ public class SensorServiceImpl implements SensorService{
     @Override
     public Sensor getSensorById(String id) throws ExecutionException, InterruptedException {
         try{
+
+
             return repository.getSensorById(id);
         }catch (Exception e){
             throw e;

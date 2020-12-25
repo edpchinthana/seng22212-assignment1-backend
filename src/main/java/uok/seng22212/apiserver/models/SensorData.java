@@ -16,8 +16,17 @@ public class SensorData {
     private Timestamp capturedDate;
     private double threshold;
     private double dataValue;
+    private SensorType type;
     private String unit;
 
+
+    public SensorType getType() {
+        return type;
+    }
+
+    public void setType(SensorType type) {
+        this.type = type;
+    }
 
     public double getThreshold() {
         return threshold;
