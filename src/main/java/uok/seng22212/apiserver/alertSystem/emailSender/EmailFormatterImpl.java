@@ -11,6 +11,13 @@ import java.util.List;
 public class EmailFormatterImpl implements EmailFormatter{
 
     @Override
+    public String getEmailSubject() {
+        StringBuilder subject = new StringBuilder();
+        subject.append("Alert! - Monitor Sensor Data Management System");
+        return subject.toString();
+    }
+
+    @Override
     public String getEmailBody(Alert alert){
         Date dateTime = new Date(alert.getSensorData().getCapturedDate().getTime());
         String date = new SimpleDateFormat("dd-MM-yyyy").format(dateTime);

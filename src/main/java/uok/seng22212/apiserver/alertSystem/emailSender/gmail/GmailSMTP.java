@@ -41,13 +41,17 @@ public class GmailSMTP implements EmailSender {
         try {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress("javaloganalyzer@gmail.com"));
-            message.setSubject("Alert! - Monitor Sensor Data Management System");
+
+            message.setSubject(emailFormatter.getEmailSubject());
+
             Multipart multipart = new MimeMultipart();
             MimeBodyPart textPart = new MimeBodyPart();
+
             String body =  emailFormatter.getEmailBody(alert);
             textPart.setText(body);
             multipart.addBodyPart(textPart);
             message.setContent(multipart);
+
             System.out.println("sending...email alerts");
 
             for(AlertSubscriber subscriber: alertSubscriberList){
