@@ -1,15 +1,16 @@
 package uok.seng22212.apiserver.models;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SensorData {
+public class SensorData implements Serializable {
 
     private String id;
     private String sensorId;

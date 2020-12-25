@@ -12,6 +12,10 @@ import uok.seng22212.apiserver.models.SensorType;
 import uok.seng22212.apiserver.services.SensorDataService;
 
 
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -36,17 +40,22 @@ public class SensorDataController {
 //        }
 //    }
 //
+
 //
-//    @RequestMapping(value="/type", method = RequestMethod.GET)
-//    public ResponseEntity<?> getSensorDataByType(@RequestParam String type, @RequestParam String from, @RequestParam String to){
-//        try{
-//            List<SensorData> sensorDataList = sensorDataService.getSensorDataByType(type, from, to);
-//            return ResponseEntity.status(HttpStatus.OK).body(sensorDataList);
-//        }catch (Exception e){
-//            LOGGER.error("GET SENSOR DATA BY TYPE ERROR",e);
-//            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
-//        }
-//    }
+    @RequestMapping(value="", method = RequestMethod.GET)
+    public ResponseEntity<?> getSensorDataByType(@RequestParam String sensorId, @RequestParam String from, @RequestParam String to){
+        try{
+            Date date1=new SimpleDateFormat("yyyy-MM-dd").parse(from);
+            Date date2=new SimpleDateFormat("yyyy-MM-dd").parse(to);
+            List<SensorData> sensorDataList = sensorDataService.getSensorDataBySensorId(sensorId, date1, date2);
+            System.out.println(from);
+            System.out.println(to);
+            return ResponseEntity.status(HttpStatus.OK).body(sensorDataList);
+        }catch (Exception e){
+            LOGGER.error("GET SENSOR DATA BY TYPE ERROR",e);
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
+        }
+    }
 
 
     @RequestMapping(value="/{sensorType}", method = RequestMethod.POST)

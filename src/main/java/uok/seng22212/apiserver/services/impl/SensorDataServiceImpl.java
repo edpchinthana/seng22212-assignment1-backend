@@ -9,7 +9,10 @@ import uok.seng22212.apiserver.models.SensorType;
 import uok.seng22212.apiserver.repositories.SensorDataRepository;
 import uok.seng22212.apiserver.services.SensorDataService;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @Service
 public class SensorDataServiceImpl implements SensorDataService {
@@ -33,24 +36,16 @@ public class SensorDataServiceImpl implements SensorDataService {
         repository.addSensorData(sensorType, sensorDataList);
     }
 
-//    @Override
-//    public List<SensorData> getAllSensorData() {
-//        try{
-//            return repository.getAllSensorData();
-//        }catch(Exception e){
-//            throw e;
-//        }
-//    }
-//
-//
-//    @Override
-//    public List<SensorData> getSensorDataByType(String type, String from, String to) {
-//        try{
-//            return repository.getSensorDataByType(type, from, to);
-//        }catch (Exception e){
-//            throw e;
-//        }
-//    }
+    @Override
+    public List<SensorData> getSensorDataBySensorId(String sensorId, Date from, Date to) throws ExecutionException, InterruptedException {
+        try{
+            return repository.getSensorDataBySensorId(sensorId,from, to);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+
 
 
 

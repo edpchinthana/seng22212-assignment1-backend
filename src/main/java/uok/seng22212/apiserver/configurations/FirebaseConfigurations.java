@@ -2,6 +2,7 @@ package uok.seng22212.apiserver.configurations;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.FirestoreOptions;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
@@ -21,6 +22,7 @@ public class FirebaseConfigurations {
                         .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                         .build();
                 FirebaseApp.initializeApp(options);
+
     }
 
     public static Firestore getFirestoreReference(){
