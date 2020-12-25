@@ -1,7 +1,8 @@
 package uok.seng22212.apiserver.alertSystem.emailSender.gmail;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import uok.seng22212.apiserver.alertSystem.EmailSender;
+import org.springframework.stereotype.Service;
+import uok.seng22212.apiserver.alertSystem.emailSender.EmailSender;
 import uok.seng22212.apiserver.alertSystem.emailSender.EmailFormatter;
 import uok.seng22212.apiserver.models.Alert;
 import uok.seng22212.apiserver.models.AlertSubscriber;
@@ -9,10 +10,10 @@ import uok.seng22212.apiserver.models.AlertSubscriber;
 import javax.mail.*;
 import javax.mail.Message.RecipientType;
 import javax.mail.internet.*;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
+@Service
 public class GmailSMTP implements EmailSender {
 
     @Autowired

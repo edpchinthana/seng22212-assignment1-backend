@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutionException;
 
 public interface SensorDataService {
 
-    void addSensorData(SensorType sensorType, List<SensorData> sensorData);
+    void addSensorData(SensorType sensorType, List<SensorData> sensorData) throws Exception;
     List<SensorData> getSensorDataBySensorId(String sensorId, Date from, Date to) throws ExecutionException, InterruptedException;
 }
 

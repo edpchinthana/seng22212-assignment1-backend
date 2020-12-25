@@ -2,6 +2,7 @@ package uok.seng22212.apiserver.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import uok.seng22212.apiserver.alertSystem.AlertSystem;
 import uok.seng22212.apiserver.criticalValueDetectors.CriticalValueDetector;
 import uok.seng22212.apiserver.criticalValueDetectors.CriticalValueDetectorFactory;
 import uok.seng22212.apiserver.models.SensorData;
@@ -23,14 +24,17 @@ public class SensorDataServiceImpl implements SensorDataService {
     @Autowired
     private CriticalValueDetectorFactory criticalValueDetectorFactory;
 
+    @Autowired
+    private AlertSystem alertSystem;
 
     @Override
-    public void addSensorData(SensorType sensorType, List<SensorData> sensorDataList) {
+    public void addSensorData(SensorType sensorType, List<SensorData> sensorDataList) throws Exception {
 
         for(SensorData sensorData : sensorDataList){
             CriticalValueDetector criticalValueDetector = criticalValueDetectorFactory.getInstance(sensorData);
             if(criticalValueDetector.detect(sensorData)){
-                System.out.println("send notifications");
+                System.out.println("send alerts");
+                alertSystem.sendAlert(sensorData);
             }
         }
         repository.addSensorData(sensorType, sensorDataList);

@@ -1,8 +1,9 @@
 package uok.seng22212.apiserver.alertSystem.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import uok.seng22212.apiserver.alertSystem.AlertSystem;
-import uok.seng22212.apiserver.alertSystem.EmailSender;
+import uok.seng22212.apiserver.alertSystem.emailSender.EmailSender;
 import uok.seng22212.apiserver.models.Alert;
 import uok.seng22212.apiserver.models.AlertSubscriber;
 import uok.seng22212.apiserver.models.SensorData;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
+@Service
 public class AlertSystemImpl implements AlertSystem {
 
     @Autowired

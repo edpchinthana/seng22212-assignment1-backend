@@ -1,4 +1,4 @@
-package uok.seng22212.apiserver.alertSystem;
+package uok.seng22212.apiserver.alertSystem.emailSender;
 
 import uok.seng22212.apiserver.models.Alert;
 import uok.seng22212.apiserver.models.AlertSubscriber;
