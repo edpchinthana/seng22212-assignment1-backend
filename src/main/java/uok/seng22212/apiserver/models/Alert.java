@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Map;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -44,5 +46,14 @@ public class Alert {
 
     public void setCause(String cause) {
         this.cause = cause;
+    }
+
+    public void convertMapToAlert(Map<String, Object> dataMap){
+        this.id = dataMap.get("id").toString();
+        this.title = dataMap.get("title").toString();
+        this.cause = dataMap.get("cause").toString();
+        SensorData sensorData = new SensorData();
+        sensorData.convertMapToSensorData((Map<String, Object>) dataMap.get("sensorData"));
+        this.sensorData = sensorData;
     }
 }
