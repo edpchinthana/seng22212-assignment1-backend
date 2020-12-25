@@ -48,8 +48,6 @@ public class SensorDataController {
             Date date1=new SimpleDateFormat("yyyy-MM-dd").parse(from);
             Date date2=new SimpleDateFormat("yyyy-MM-dd").parse(to);
             List<SensorData> sensorDataList = sensorDataService.getSensorDataBySensorId(sensorId, date1, date2);
-            System.out.println(from);
-            System.out.println(to);
             return ResponseEntity.status(HttpStatus.OK).body(sensorDataList);
         }catch (Exception e){
             LOGGER.error("GET SENSOR DATA BY TYPE ERROR",e);

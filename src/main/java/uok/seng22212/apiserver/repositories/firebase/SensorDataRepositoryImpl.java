@@ -61,7 +61,6 @@ public class SensorDataRepositoryImpl implements SensorDataRepository {
 
             return sensorDataList;
         }catch (Exception e){
-            System.out.println(e);
             throw e;
         }
     }
