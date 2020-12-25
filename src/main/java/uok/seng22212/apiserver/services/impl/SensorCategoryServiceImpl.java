@@ -26,14 +26,4 @@ public class SensorCategoryServiceImpl implements SensorCategoryService {
         }
     }
 
-    @Override
-    public void addSensorCategory(SensorCategory sensorCategory) {
-        try{
-            String generatedUUID = UUID.randomUUID().toString();
-            sensorCategory.setId(generatedUUID);
-            sensorCategoryRepository.AddCategory(sensorCategory);
-        }catch (Exception e){
-            throw e;
-        }
-    }
 }

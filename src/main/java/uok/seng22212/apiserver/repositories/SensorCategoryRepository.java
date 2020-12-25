@@ -8,5 +8,4 @@ import java.util.concurrent.ExecutionException;
 public interface SensorCategoryRepository {
 
     List<SensorCategory> getAllCategories() throws ExecutionException, InterruptedException;
-    void AddCategory(SensorCategory sensorCategory);
 }

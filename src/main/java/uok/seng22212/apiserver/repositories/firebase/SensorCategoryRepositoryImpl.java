@@ -26,12 +26,4 @@ public class SensorCategoryRepositoryImpl implements SensorCategoryRepository {
         }
     }
 
-    @Override
-    public void AddCategory(SensorCategory sensorCategory) {
-        try{
-            firestoreRef.collection("SensorCategories").document(sensorCategory.getId()).set(sensorCategory);
-        }catch (Exception e){
-            throw e;
-        }
-    }
 }

@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uok.seng22212.apiserver.models.Sensor;
 import uok.seng22212.apiserver.models.SensorCategory;
+import uok.seng22212.apiserver.models.SensorData;
+import uok.seng22212.apiserver.models.SensorType;
 import uok.seng22212.apiserver.services.SensorCategoryService;
 
 import java.util.List;
