@@ -9,7 +9,7 @@ import java.util.concurrent.ExecutionException;
 
 public interface SensorService {
 
-//    void addSensor(SensorType sensorType, List<Sensor> sensor);
+    void addSensor(List<Sensor> sensor);
 //    List<Sensor> getSensor();
     Sensor getSensorById(String id) throws ExecutionException, InterruptedException;
 

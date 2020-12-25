@@ -14,6 +14,7 @@ import uok.seng22212.apiserver.models.SensorType;
 import uok.seng22212.apiserver.repositories.SensorRepository;
 import uok.seng22212.apiserver.services.SensorService;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
 @Service
@@ -26,22 +27,20 @@ public class SensorServiceImpl implements SensorService{
     @Override
     public Sensor getSensorById(String id) throws ExecutionException, InterruptedException {
         try{
-
-
             return repository.getSensorById(id);
         }catch (Exception e){
             throw e;
         }
     }
 
+    @Override
+    public void addSensor( List<Sensor> sensorList) {
+        for(Sensor sensor: sensorList){
+            sensor.setId(UUID.randomUUID().toString());
+        }
+        repository.addSensor(sensorList);
+    }
 
-
-
-   // @Override
-   // public void addSensor(SensorType sensorType, List<Sensor> sensor) {
-    //    repository.addSensor(sensorType, sensor);
-   // }
-//
 //    @Override
 //    public List<SensorData> getSensor() {
 //        try{

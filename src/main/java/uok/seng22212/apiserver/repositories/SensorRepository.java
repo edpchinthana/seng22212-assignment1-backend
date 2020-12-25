@@ -8,5 +8,5 @@ import java.util.concurrent.ExecutionException;
 public interface SensorRepository {
     List<Sensor> getSensors();
     Sensor getSensorById(String id) throws ExecutionException, InterruptedException;
-    void addSensor(Sensor sensor);
+    void addSensor(List<Sensor> sensorList);
 }

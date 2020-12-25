@@ -50,16 +50,16 @@ public class SensorController {
 //    }
 //
 //
-//    @RequestMapping(value="/{sensorType}", method = RequestMethod.POST)
-//    public ResponseEntity<?> addSensor (@RequestBody List<Sensor> sensor, @PathVariable("sensorType") SensorType sensorType){
-//        try{
-//            sensorService.addSensor(sensorType, sensor);
-//            return ResponseEntity.status(HttpStatus.OK).build();
-//        }catch (Exception e){
-//            LOGGER.error("ADD SENSOR ERROR",e);
-//            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
-//        }
-//    }
+    @RequestMapping(value="", method = RequestMethod.POST)
+    public ResponseEntity<?> addSensor (@RequestBody List<Sensor> sensor){
+        try{
+            sensorService.addSensor(sensor);
+            return ResponseEntity.status(HttpStatus.OK).build();
+        }catch (Exception e){
+            LOGGER.error("ADD SENSOR ERROR",e);
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
+        }
+    }
 
 
 

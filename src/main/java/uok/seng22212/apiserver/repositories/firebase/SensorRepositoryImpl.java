@@ -31,7 +31,13 @@ public class SensorRepositoryImpl implements SensorRepository {
     }
 
     @Override
-    public void addSensor(Sensor sensor) {
-
+    public void addSensor(List<Sensor> sensorList) {
+        try{
+            for (Sensor sensor : sensorList ){
+                firestoreRef.collection("Sensors").document(sensor.getId()).set(sensor);
+            }
+        }catch (Exception e){
+            throw e;
+        }
     }
 }
