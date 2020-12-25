@@ -7,6 +7,7 @@ import uok.seng22212.apiserver.alertSystem.emailSender.EmailSender;
 import uok.seng22212.apiserver.models.Alert;
 import uok.seng22212.apiserver.models.AlertSubscriber;
 import uok.seng22212.apiserver.models.SensorData;
+import uok.seng22212.apiserver.repositories.AlertRepository;
 import uok.seng22212.apiserver.services.AlertSubscriberService;
 
 import javax.mail.MessagingException;
@@ -25,6 +26,9 @@ public class AlertSystemImpl implements AlertSystem {
     @Autowired
     EmailSender emailSender;
 
+    @Autowired
+    AlertRepository alertRepository;
+
     @Override
     public void sendAlert(SensorData sensorData) throws ExecutionException, InterruptedException, MessagingException {
 
@@ -33,8 +37,17 @@ public class AlertSystemImpl implements AlertSystem {
             List<AlertSubscriber> alertSubscriberList = alertSubscriberService.getAllSubscribers();
 
             emailSender.sendEmails(alert, alertSubscriberList);
+            alertRepository.addAlert(alert);
 
+        }catch (Exception e){
+            throw e;
+        }
+    }
 
+    @Override
+    public List<Alert> getAlertHistory() throws ExecutionException, InterruptedException {
+        try{
+            return alertRepository.getAlertHistory();
         }catch (Exception e){
             throw e;
         }
