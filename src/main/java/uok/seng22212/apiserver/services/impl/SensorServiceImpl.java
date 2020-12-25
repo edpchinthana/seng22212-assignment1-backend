@@ -9,14 +9,28 @@ import uok.seng22212.apiserver.controllers.SensorController;
 import uok.seng22212.apiserver.models.Sensor;
 import uok.seng22212.apiserver.models.SensorType;
 
+import uok.seng22212.apiserver.repositories.SensorRepository;
 import uok.seng22212.apiserver.services.SensorService;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @Service
 public class SensorServiceImpl implements SensorService{
 
-    //@Autowired
-    //private SensorRepository repository;
+    @Autowired
+    private SensorRepository repository;
+
+
+    @Override
+    public Sensor getSensorById(String id) throws ExecutionException, InterruptedException {
+        try{
+            return repository.getSensorById(id);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+
 
 
    // @Override

@@ -20,11 +20,24 @@ import java.util.List;
 
 public class SensorController {
 
-//    @Autowired
-//    SensorService sensorService;
-//
-//    private final Logger LOGGER = LoggerFactory.getLogger(SensorController.class);
-//
+    @Autowired
+    SensorService sensorService;
+
+    private final Logger LOGGER = LoggerFactory.getLogger(SensorController.class);
+
+
+        @RequestMapping(value="/{sensorId}", method = RequestMethod.GET)
+    public ResponseEntity<?> getSensor(@PathVariable("sensorId") String id){
+        try{
+            Sensor sensor =  sensorService.getSensorById(id);
+            System.out.println("get sensor "+sensor.getTitle());
+            return ResponseEntity.status(HttpStatus.OK).body(sensor);
+        }catch (Exception e){
+            LOGGER.error("GET SENSOR  ERROR",e);
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
+        }
+    }
+
 //    @RequestMapping(value="", method = RequestMethod.GET)
 //    public ResponseEntity<?> getSensor(){
 //        try{

@@ -11,7 +11,7 @@ public class Sensor {
 
     private String id;
     private String title;
-    private SensorCategory type;
+    private SensorType type;
     private double threshold;
     private String unit;
 
@@ -31,11 +31,11 @@ public class Sensor {
         this.title = title;
     }
 
-    public SensorCategory getType() {
+    public SensorType getType() {
         return type;
     }
 
-    public void setType(SensorCategory type) {
+    public void setType(SensorType type) {
         this.type = type;
     }
 
