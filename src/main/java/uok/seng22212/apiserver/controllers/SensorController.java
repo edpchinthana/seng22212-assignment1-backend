@@ -20,33 +20,33 @@ import java.util.List;
 
 public class SensorController {
 
-    @Autowired
-    SensorService sensorService;
-
-    private final Logger LOGGER = LoggerFactory.getLogger(SensorController.class);
-
-    @RequestMapping(value="", method = RequestMethod.GET)
-    public ResponseEntity<?> getSensor(){
-        try{
-            List<Sensor> sensorList =  sensorService.getSensor();
-            return ResponseEntity.status(HttpStatus.OK).build();
-        }catch (Exception e){
-            LOGGER.error("GET SENSOR  ERROR",e);
-            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
-        }
-    }
-
-
-    @RequestMapping(value="/{sensorType}", method = RequestMethod.POST)
-    public ResponseEntity<?> addSensor (@RequestBody List<Sensor> sensor, @PathVariable("sensorType") SensorType sensorType){
-        try{
-            sensorService.addSensor(sensorType, sensor);
-            return ResponseEntity.status(HttpStatus.OK).build();
-        }catch (Exception e){
-            LOGGER.error("ADD SENSOR ERROR",e);
-            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
-        }
-    }
+//    @Autowired
+//    SensorService sensorService;
+//
+//    private final Logger LOGGER = LoggerFactory.getLogger(SensorController.class);
+//
+//    @RequestMapping(value="", method = RequestMethod.GET)
+//    public ResponseEntity<?> getSensor(){
+//        try{
+//            List<Sensor> sensorList =  sensorService.getSensor();
+//            return ResponseEntity.status(HttpStatus.OK).build();
+//        }catch (Exception e){
+//            LOGGER.error("GET SENSOR  ERROR",e);
+//            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
+//        }
+//    }
+//
+//
+//    @RequestMapping(value="/{sensorType}", method = RequestMethod.POST)
+//    public ResponseEntity<?> addSensor (@RequestBody List<Sensor> sensor, @PathVariable("sensorType") SensorType sensorType){
+//        try{
+//            sensorService.addSensor(sensorType, sensor);
+//            return ResponseEntity.status(HttpStatus.OK).build();
+//        }catch (Exception e){
+//            LOGGER.error("ADD SENSOR ERROR",e);
+//            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
+//        }
+//    }
 
 
 

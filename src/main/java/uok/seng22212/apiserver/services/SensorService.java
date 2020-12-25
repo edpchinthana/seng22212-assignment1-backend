@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface SensorService {
 
-    void addSensor(SensorType sensorType, List<Sensor> sensor);
-    List<Sensor> getSensor();
+//    void addSensor(SensorType sensorType, List<Sensor> sensor);
+//    List<Sensor> getSensor();
 
 
 

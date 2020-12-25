@@ -17,10 +17,10 @@ public class SensorDataRepositoryImpl implements SensorDataRepository {
     @Override
     public void addSensorData(SensorType sensorType, List<SensorData> sensorDataList) {
             try{
-                CollectionReference ref = firestoreRef.collection(sensorType.toString());
+                CollectionReference ref = firestoreRef.collection("Sensors");
                        for(SensorData sensorData:sensorDataList){
                            ref.document(sensorData.getSensorId())
-                                   .collection("SensorData")
+                                   .collection("data")
                                    .document(sensorData.getId())
                                    .set(sensorData);
                        }
