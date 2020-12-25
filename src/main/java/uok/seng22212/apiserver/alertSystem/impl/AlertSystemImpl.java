@@ -9,6 +9,7 @@ import uok.seng22212.apiserver.models.AlertSubscriber;
 import uok.seng22212.apiserver.models.SensorData;
 import uok.seng22212.apiserver.services.AlertSubscriberService;
 
+import javax.mail.MessagingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -25,7 +26,7 @@ public class AlertSystemImpl implements AlertSystem {
     EmailSender emailSender;
 
     @Override
-    public void sendAlert(SensorData sensorData) throws ExecutionException, InterruptedException {
+    public void sendAlert(SensorData sensorData) throws ExecutionException, InterruptedException, MessagingException {
 
         try{
             Alert alert = alertMessageGenerator(sensorData);

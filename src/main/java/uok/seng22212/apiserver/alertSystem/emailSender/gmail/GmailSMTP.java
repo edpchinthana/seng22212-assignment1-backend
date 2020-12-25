@@ -20,7 +20,7 @@ public class GmailSMTP implements EmailSender {
     EmailFormatter emailFormatter;
 
     @Override
-    public void sendEmails(Alert alert, List<AlertSubscriber> alertSubscriberList) {
+    public void sendEmails(Alert alert, List<AlertSubscriber> alertSubscriberList) throws MessagingException {
 
         final String sender = "javaloganalyzer@gmail.com";
         final String password = "loganalyzer2020";
@@ -60,8 +60,8 @@ public class GmailSMTP implements EmailSender {
                 Transport.send(message);
             }
 
-        } catch (MessagingException var16) {
-            var16.printStackTrace();
+        } catch (Exception e) {
+            throw e;
         }
 
     }
