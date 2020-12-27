@@ -26,7 +26,7 @@ public class AlertController {
     private final Logger LOGGER = LoggerFactory.getLogger(AlertController.class);
 
     @RequestMapping(value="", method = RequestMethod.GET)
-    public ResponseEntity<?> getAllSubscribers(){
+    public ResponseEntity<?> getAlertHistory(){
         try{
             List<Alert> alertHistory = alertSystem.getAlertHistory();
             return ResponseEntity.status(HttpStatus.OK).body(alertHistory);
