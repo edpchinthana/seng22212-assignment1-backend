@@ -10,14 +10,15 @@ import org.springframework.stereotype.Service;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 @Service
 public class FirebaseConfigurations {
 
     public static void initializeFirebase() throws IOException {
-
-        FileInputStream serviceAccount =
-                new FileInputStream("/home/pasindu/Downloads/seng22212-assignment-1-firebase-adminsdk-agh2y-62b0ce27a3.json");
+        InputStream serviceAccount = Thread.currentThread().getContextClassLoader().getResourceAsStream("seng22212-assignment-1-firebase-adminsdk-agh2y-62b0ce27a3.json");
+//        FileInputStream serviceAccount =
+//                new FileInputStream("/home/pasindu/Downloads/seng22212-assignment-1-firebase-adminsdk-agh2y-62b0ce27a3.json");
                 FirebaseOptions options = new FirebaseOptions.Builder()
                         .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                         .build();

@@ -1,6 +1,7 @@
 package uok.seng22212.apiserver.alertSystem.emailSender.gmail;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import uok.seng22212.apiserver.alertSystem.emailSender.EmailSender;
 import uok.seng22212.apiserver.alertSystem.emailSender.EmailFormatter;
@@ -19,13 +20,21 @@ public class GmailSMTP implements EmailSender {
     @Autowired
     EmailFormatter emailFormatter;
 
+    @Value("${mailSender.email}")
+    private String sender;
+
+    @Value("${mailSender.password}")
+    private String password;
+
+    @Value("${mailSender.host}")
+    private String host;
+
+    @Value("${mailSender.port}")
+    private String port;
+
     @Override
     public void sendEmails(Alert alert, List<AlertSubscriber> alertSubscriberList) throws MessagingException {
 
-        final String sender = "javaloganalyzer@gmail.com";
-        final String password = "loganalyzer2020";
-        String host = "smtp.gmail.com";
-        String port = "465";
         Properties properties = System.getProperties();
         properties.put("mail.smtp.host", host);
         properties.put("mail.smtp.port", port);
@@ -41,7 +50,7 @@ public class GmailSMTP implements EmailSender {
 
         try {
             MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("javaloganalyzer@gmail.com"));
+            message.setFrom(new InternetAddress(sender));
 
             message.setSubject(emailFormatter.getEmailSubject());
 
