@@ -5,6 +5,7 @@ import com.google.cloud.firestore.Firestore;
 import org.springframework.stereotype.Repository;
 import uok.seng22212.apiserver.configurations.FirebaseConfigurations;
 import uok.seng22212.apiserver.models.Sensor;
+import uok.seng22212.apiserver.models.SensorType;
 import uok.seng22212.apiserver.repositories.SensorRepository;
 
 import java.util.List;
@@ -15,10 +16,6 @@ public class SensorRepositoryImpl implements SensorRepository {
 
     private final static Firestore firestoreRef = FirebaseConfigurations.getFirestoreReference();
 
-    @Override
-    public List<Sensor> getSensors() {
-        return null;
-    }
 
     @Override
     public Sensor getSensorById(String id) throws ExecutionException, InterruptedException {
@@ -27,6 +24,15 @@ public class SensorRepositoryImpl implements SensorRepository {
             return doc.toObject(Sensor.class);
         }catch (Exception e){
             throw e;
+        }
+    }
+
+    @Override
+    public List<Sensor> getSensorsBySensorType(SensorType sensorType) throws InterruptedException, ExecutionException {
+        try{
+            return firestoreRef.collection("Sensors").whereEqualTo("type", sensorType.toString()).get().get().toObjects(Sensor.class);
+        } catch (Exception e) {
+           throw e;
         }
     }
 

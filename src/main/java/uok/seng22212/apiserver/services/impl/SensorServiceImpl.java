@@ -41,18 +41,14 @@ public class SensorServiceImpl implements SensorService{
         repository.addSensor(sensorList);
     }
 
-//    @Override
-//    public List<SensorData> getSensor() {
-//        try{
-//            return repository.getSensor();
-//        }catch(Exception e){
-//            throw e;
-//        }
-//    }
-
-
-
-
+    @Override
+    public List<Sensor> getSensorsBySensorType(SensorType sensorType) throws ExecutionException, InterruptedException {
+        try{
+            return repository.getSensorsBySensorType(sensorType);
+        }catch (Exception e){
+            throw e;
+        }
+    }
 
 
 }

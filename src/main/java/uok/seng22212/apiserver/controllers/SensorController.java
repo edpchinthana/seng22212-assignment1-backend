@@ -38,18 +38,18 @@ public class SensorController {
         }
     }
 
-//    @RequestMapping(value="", method = RequestMethod.GET)
-//    public ResponseEntity<?> getSensor(){
-//        try{
-//            List<Sensor> sensorList =  sensorService.getSensor();
-//            return ResponseEntity.status(HttpStatus.OK).build();
-//        }catch (Exception e){
-//            LOGGER.error("GET SENSOR  ERROR",e);
-//            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
-//        }
-//    }
-//
-//
+    @RequestMapping(value="", method = RequestMethod.GET)
+    public ResponseEntity<?> getSensor(@RequestParam SensorType sensorType){
+        try{
+            List<Sensor> sensorList =  sensorService.getSensorsBySensorType(sensorType);
+            return ResponseEntity.status(HttpStatus.OK).body(sensorList);
+        }catch (Exception e){
+            LOGGER.error("GET SENSOR BY TYPE  ERROR",e);
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
+        }
+    }
+
+
     @RequestMapping(value="", method = RequestMethod.POST)
     public ResponseEntity<?> addSensor (@RequestBody List<Sensor> sensor){
         try{
