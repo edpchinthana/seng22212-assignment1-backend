@@ -44,9 +44,9 @@ public class AlertSystemImpl implements AlertSystem {
     }
 
     @Override
-    public List<Alert> getAlertHistory() throws ExecutionException, InterruptedException {
+    public List<Alert> getAlertHistory(String sensorId) throws ExecutionException, InterruptedException {
         try{
-            return alertRepository.getAlertHistory();
+            return alertRepository.getAlertHistory(sensorId);
         }catch (Exception e){
             throw e;
         }

@@ -9,5 +9,5 @@ import java.util.concurrent.ExecutionException;
 public interface AlertSystem {
 
     void sendAlert(SensorData sensorData) throws Exception;
-    List<Alert> getAlertHistory() throws ExecutionException, InterruptedException;
+    List<Alert> getAlertHistory(String sensorId) throws ExecutionException, InterruptedException;
 }

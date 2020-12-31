@@ -5,10 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uok.seng22212.apiserver.alertSystem.AlertSystem;
 import uok.seng22212.apiserver.models.Alert;
 import uok.seng22212.apiserver.models.AlertSubscriber;
@@ -26,9 +23,9 @@ public class AlertController {
     private final Logger LOGGER = LoggerFactory.getLogger(AlertController.class);
 
     @RequestMapping(value="", method = RequestMethod.GET)
-    public ResponseEntity<?> getAlertHistory(){
+    public ResponseEntity<?> getAlertHistory(@RequestParam String sensorId){
         try{
-            List<Alert> alertHistory = alertSystem.getAlertHistory();
+            List<Alert> alertHistory = alertSystem.getAlertHistory(sensorId);
             return ResponseEntity.status(HttpStatus.OK).body(alertHistory);
         }catch (Exception e){
             LOGGER.error("GET ALERT HISTORY  ERROR",e);

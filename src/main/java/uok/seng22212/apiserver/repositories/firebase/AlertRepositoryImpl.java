@@ -26,10 +26,10 @@ public class AlertRepositoryImpl implements AlertRepository {
     }
 
     @Override
-    public List<Alert> getAlertHistory() throws ExecutionException, InterruptedException {
+    public List<Alert> getAlertHistory(String sensorId) throws ExecutionException, InterruptedException {
         List<Alert> alertList = new ArrayList<Alert>();
 
-        List<QueryDocumentSnapshot> queryDocumentSnapshots = firestoreRef.collection("AlertHistory").get().get().getDocuments();
+        List<QueryDocumentSnapshot> queryDocumentSnapshots = firestoreRef.collection("AlertHistory").whereEqualTo("sensorData.sensorId", sensorId).get().get().getDocuments();
         for(QueryDocumentSnapshot doc: queryDocumentSnapshots){
             Alert alert = new Alert();
             alert.convertMapToAlert(doc.getData());

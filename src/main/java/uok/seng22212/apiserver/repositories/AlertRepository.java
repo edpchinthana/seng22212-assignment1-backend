@@ -7,5 +7,5 @@ import java.util.concurrent.ExecutionException;
 
 public interface AlertRepository {
     void addAlert(Alert alert);
-    List<Alert> getAlertHistory() throws ExecutionException, InterruptedException;
+    List<Alert> getAlertHistory(String sensorId) throws ExecutionException, InterruptedException;
 }
