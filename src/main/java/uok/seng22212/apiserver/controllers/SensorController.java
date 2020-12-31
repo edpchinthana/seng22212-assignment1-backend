@@ -72,11 +72,16 @@ public class SensorController {
         }
     }
 
-
-
-
-
-
+    @RequestMapping(value="", method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteSensor(@RequestParam String sensorId){
+            try{
+                sensorService.deleteSensor(sensorId);
+                return ResponseEntity.status(HttpStatus.OK).build();
+            }catch (Exception e){
+                LOGGER.error("DELETE SENSOR ERROR",e);
+                return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
+            }
+    }
 
 
 }
