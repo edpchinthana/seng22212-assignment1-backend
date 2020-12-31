@@ -34,4 +34,13 @@ public class AlertSubscriberServiceImpl implements AlertSubscriberService {
             throw e;
         }
     }
+
+    @Override
+    public void deleteSubscriebr(String subscriberId) {
+        try{
+            alertSubscriberRepository.deleteSubscriber(subscriberId);
+        }catch (Exception e){
+            throw e;
+        }
+    }
 }

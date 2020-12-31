@@ -8,4 +8,5 @@ import java.util.concurrent.ExecutionException;
 public interface AlertSubscriberService {
     void addSubscriber(AlertSubscriber alertSubscriber);
     List<AlertSubscriber> getAllSubscribers() throws ExecutionException, InterruptedException;
+    void deleteSubscriebr(String subscriberId);
 }

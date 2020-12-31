@@ -44,5 +44,16 @@ public class AlertSubscriberController {
         }
     }
 
+    @RequestMapping(value="", method = RequestMethod.DELETE)
+    public ResponseEntity<?> addAlertSubscriber (@RequestParam String subscriberId){
+        try{
+            alertSubscriberService.deleteSubscriebr(subscriberId);
+            return ResponseEntity.status(HttpStatus.OK).build();
+        }catch (Exception e){
+            LOGGER.error("DELETE ALERT SUBSCRIBER ERROR",e);
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
+        }
+    }
+
 
 }

@@ -32,4 +32,13 @@ public class AlertSubscriberRepositoryImpl implements AlertSubscriberRepository 
             throw e;
         }
     }
+
+    @Override
+    public void deleteSubscriber(String subscriberId) {
+        try{
+            firestoreRef.collection("AlertSubscribers").document(subscriberId).delete();
+        }catch (Exception e){
+            throw e;
+        }
+    }
 }

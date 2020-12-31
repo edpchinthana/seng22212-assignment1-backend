@@ -9,4 +9,5 @@ public interface AlertSubscriberRepository {
 
     void addSubscriber(AlertSubscriber alertSubscriber);
     List<AlertSubscriber> getAllSubscribers() throws ExecutionException, InterruptedException;
+    void deleteSubscriber(String subscriberId);
 }
