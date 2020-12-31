@@ -49,12 +49,4 @@ public class SensorDataServiceImpl implements SensorDataService {
         }
     }
 
-
-
-
-
-
-
-
-
 }
