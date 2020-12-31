@@ -56,4 +56,13 @@ public class SensorRepositoryImpl implements SensorRepository {
         }
     }
 
+    @Override
+    public void deleteSensor(String sensorId) {
+        try{
+            firestoreRef.collection("Sensors").document(sensorId).delete();
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
 }

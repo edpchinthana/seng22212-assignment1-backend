@@ -43,6 +43,15 @@ public class SensorServiceImpl implements SensorService{
     }
 
     @Override
+    public void deleteSensor(String sensorId) {
+        try {
+            repository.deleteSensor(sensorId);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+    @Override
     public void addSensor( List<Sensor> sensorList) {
         try{
             for(Sensor sensor: sensorList){
