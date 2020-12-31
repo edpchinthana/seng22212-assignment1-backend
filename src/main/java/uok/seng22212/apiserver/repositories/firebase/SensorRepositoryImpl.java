@@ -46,4 +46,14 @@ public class SensorRepositoryImpl implements SensorRepository {
             throw e;
         }
     }
+
+    @Override
+    public void updateSensor(Sensor sensor) {
+        try{
+            firestoreRef.collection("Sensors").document(sensor.getId()).set(sensor);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
 }

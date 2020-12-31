@@ -10,4 +10,5 @@ public interface SensorRepository {
     Sensor getSensorById(String id) throws ExecutionException, InterruptedException;
     List<Sensor> getSensorsBySensorType(SensorType sensorType) throws InterruptedException, ExecutionException;
     void addSensor(List<Sensor> sensorList);
+    void updateSensor(Sensor sensor);
 }

@@ -12,7 +12,7 @@ public interface SensorService {
     void addSensor(List<Sensor> sensor);
     List<Sensor> getSensorsBySensorType(SensorType sensorType) throws ExecutionException, InterruptedException;
     Sensor getSensorById(String id) throws ExecutionException, InterruptedException;
-
+    void updateSensor(Sensor sensor);
 
 
 }

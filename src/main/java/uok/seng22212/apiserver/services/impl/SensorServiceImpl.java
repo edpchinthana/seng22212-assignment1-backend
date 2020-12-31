@@ -34,11 +34,24 @@ public class SensorServiceImpl implements SensorService{
     }
 
     @Override
-    public void addSensor( List<Sensor> sensorList) {
-        for(Sensor sensor: sensorList){
-            sensor.setId(UUID.randomUUID().toString());
+    public void updateSensor(Sensor sensor) {
+        try {
+            repository.updateSensor(sensor);
+        }catch (Exception e){
+            throw e;
         }
-        repository.addSensor(sensorList);
+    }
+
+    @Override
+    public void addSensor( List<Sensor> sensorList) {
+        try{
+            for(Sensor sensor: sensorList){
+                sensor.setId(UUID.randomUUID().toString());
+            }
+            repository.addSensor(sensorList);
+        }catch (Exception e){
+            throw e;
+        }
     }
 
     @Override
