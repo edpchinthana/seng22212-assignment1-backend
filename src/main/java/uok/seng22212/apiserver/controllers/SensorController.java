@@ -61,6 +61,17 @@ public class SensorController {
         }
     }
 
+    @RequestMapping(value="", method = RequestMethod.PUT)
+    public ResponseEntity<?> updateSensor(@RequestBody Sensor sensor){
+        try{
+            sensorService.updateSensor(sensor);
+            return ResponseEntity.status(HttpStatus.OK).build();
+        }catch (Exception e){
+            LOGGER.error("UPDATE SENSOR ERROR",e);
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(e.getMessage());
+        }
+    }
+
 
 
 
